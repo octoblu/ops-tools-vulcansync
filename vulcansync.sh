@@ -1,7 +1,6 @@
 #!/bin/bash
 
 VARGS=$@
-set -e nounset
 
 describe_aws_load_balancer_instances() {
   aws elb describe-load-balancers \
