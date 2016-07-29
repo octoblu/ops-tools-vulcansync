@@ -85,7 +85,7 @@ do_vulcan_sync() {
 
   sync_backend "${vulcan_url}" "${project_name}"
   sync_frontend "${vulcan_url}" "${project_name}"
-  for middleware in ${HOME}/Projects/Octoblu/the-stack-env-production/vulcan.d/${project_name}/middlewares/*; do
+  for middleware in ${HOME}/Projects/Octoblu/the-stack-env-production/major/vulcan/${project_name}/middlewares/*; do
     sync_middleware "${vulcan_url}" "${project_name}" "${middleware}"
   done
 }
@@ -93,14 +93,14 @@ do_vulcan_sync() {
 sync_backend(){
   local vulcan_url="$1"
   local project_name="$2"
-  local args=$(cat "${HOME}/Projects/Octoblu/the-stack-env-production/vulcan.d/${project_name}/backend")
+  local args=$(cat "${HOME}/Projects/Octoblu/the-stack-env-production/major/vulcan/${project_name}/backend")
   vctl --vulcan "${vulcan_url}" backend upsert $args
 }
 
 sync_frontend(){
   local vulcan_url="$1"
   local project_name="$2"
-  local args=$(cat "${HOME}/Projects/Octoblu/the-stack-env-production/vulcan.d/${project_name}/frontend")
+  local args=$(cat "${HOME}/Projects/Octoblu/the-stack-env-production/major/vulcan/${project_name}/frontend")
   vctl --vulcan "${vulcan_url}" frontend upsert $args
 }
 
