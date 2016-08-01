@@ -40,7 +40,7 @@ get_major_ip(){
 establish_ssh_tunnel(){
   local ip_address="$1"
 
-  ssh -t -t -L 61222:localhost:8182 "core@$ip_address" &> /dev/null
+  ssh -t -t -L 61222:internal-vulcand-major-1120903172.us-west-2.elb.amazonaws.com:8182 "core@$ip_address" &> /dev/null
 }
 
 kill_ssh_tunnel_job() {
